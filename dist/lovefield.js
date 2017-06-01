@@ -6455,7 +6455,7 @@ lf.backstore.ObjectStore = function(store, deserializeFn) {
 };
 lf.backstore.ObjectStore.prototype.get = function(ids) {
   if (0 == ids.length) {
-    return goog.isDefAndNotNull(this.store_.getAll) ? this.getAllBulk_() : this.getAllWithCursor_();
+    return this.getAllWithCursor_();
   }
   var promises = ids.map(function(id) {
     return new goog.Promise(function(resolve, reject) {
